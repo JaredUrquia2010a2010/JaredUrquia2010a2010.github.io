@@ -34,3 +34,8 @@ th {
 tbody tr:nth-child(even) {
     background-color: #f9f9f9; /* Color de fondo para filas pares */
 }
+function showTable(tableId) {
+    document.getElementById('clasificacion').style.display = 'none';
+    document.getElementById('goleadores').style.display = 'none';
+    document.getElementById(tableId).style.display = 'block';
+}
