@@ -66,16 +66,26 @@
             background-color: #f9f9f9; /* Color de fondo para filas pares */
         }
     </style>
+    <script>
+        function irADestino(seccion) {
+            // Ocultar todas las secciones
+            document.getElementById('clasificacion').style.display = 'none';
+            document.getElementById('goleadores').style.display = 'none';
+            
+            // Mostrar la sección seleccionada
+            document.getElementById(seccion).style.display = 'block';
+        }
+    </script>
 </head>
 <body>
     <h1>Clasificación de la Liga Española</h1>
     
     <nav>
-    <button onclick="irADestino('seccion-clasificacion')"> clasificacion </button>
-    <button onclick="irADestino('goleadores')"> goleadores</button>
+        <button onclick="irADestino('clasificacion')">Clasificación</button>
+        <button onclick="irADestino('goleadores')">Goleadores</button>
     </nav>
 
-    <div id="clasificacion" class= "seccion-clasificacion"
+    <div id="clasificacion" class="table-container">
         <table>
             <thead>
                 <tr>
@@ -138,51 +148,4 @@
                 <tr>
                     <td>5</td>
                     <td>Real Betis</td>
-                    <td>10</td>
-                    <td>5</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>15</td>
-                    <td>14</td>
-                    <td>17</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div id="goleadores"  class="('seccion-goleadores')"
-        <h2>Tabla de Goleadores y Asistencias</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Jugador</th>
-                    <th>Equipo</th>
-                    <th>Goles</th>
-                    <th>Asistencias</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Cristiano Ronaldo</td>
-                    <td>Real Madrid</td>
-                    <td>10</td>
-                    <td>5</td>
-                </tr>
-                <tr>
-                    <td>Lionel Messi</td>
-                    <td>FC Barcelona</td>
-                    <td>9</td>
-                    <td>6</td>
-                </tr>
-                <tr>
-                    <td>Antoine Griezmann</td>
-                    <td>Atlético de Madrid</td>
-                    <td>8</td>
-                    <td>4</td>
-                </tr>
-                <tr>
-                    <td>Lucas Ocampos</td>
-                    <td>Sevilla FC</td>
-                    <td>7</td>
-                    <td>3</td>
-                </tr>
+                    <
