@@ -1,5 +1,5 @@
 function showTable(tableId) {
-    document.getElementById('clasificacion').style.display = 'enter';
-    document.getElementById('goleadores').style.display = 'enter';
-    document.getElementById(tableId).style.display = 'enter';
+    document.getElementById('clasificacion').style.display = 'block';
+    document.getElementById('goleadores').style.display = 'block';
+    document.getElementById(tableId).style.display = 'block';
 }
