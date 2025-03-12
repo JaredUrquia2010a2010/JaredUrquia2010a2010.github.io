@@ -68,7 +68,9 @@
     </style>
     <script>
         function irADestino(seccion) {
-            
+            // Mostrar la seccion seleccionada 
+            document.getElementById('clasificacion').style.display = 'none';
+            document.getElementById('goleadores').style.display = 'none';
             // Mostrar la sección seleccionada
             document.getElementById(seccion).style.display = 'block';
         }
@@ -77,10 +79,7 @@
 <body>
     <h1>Clasificación de la Liga Española</h1>
     
-    <nav>
-        <button onclick="irADestino('clasificacion')">Clasificación</button>
-        <button onclick="irADestino('goleadores')">Goleadores</button>
-    </nav>
+  
 
     <div id="clasificacion" class="table-container">
         <table>
