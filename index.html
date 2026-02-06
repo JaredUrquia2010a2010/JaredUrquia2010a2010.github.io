@@ -1,53 +1,43 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<title>Siete Días de Versos</title>
-</head>
-
-<body style="background-color: #fdf6e3; font-family: Georgia; display:flex; flex-direction:column; align-items:center; padding:40px;">
-
-<h1>Poemario Semanal</h1>
-
-<!-- DIA 2 -->
-<details onclick="verificar(event,'dia2','AZU')">
-<summary>✉️ Día 2: El Sendero</summary>
-
-<div id="dia2" style="display:none; padding:15px;">
-"No busques el final del camino,<br>
-ni el oro al final del altar,<br>
-que el más bello destino<br>
-es simplemente saber caminar."
-</div>
-
-</details>
-
 <script>
 
-let desbloqueados = {};
+// Cargar sobres desbloqueados cuando abre la página
+window.onload = function(){
 
+    let guardados = JSON.parse(localStorage.getItem("desbloqueados")) || [];
+
+    guardados.forEach(id =>{
+        document.getElementById(id).style.display = "block";
+    });
+
+}
+
+
+// Función que pide contraseña
 function verificar(event,id,clave){
 
-if(!desbloqueados[id]){
+    let desbloqueados = JSON.parse(localStorage.getItem("desbloqueados")) || [];
 
-event.preventDefault();
+    // Si aún no está desbloqueado
+    if(!desbloqueados.includes(id)){
 
-let intento = prompt("Ingresa el código secreto ❤️");
+        event.preventDefault();
 
-if(intento === clave){
+        let intento = prompt("Ingresa el código secreto ❤️");
 
-document.getElementById(id).style.display = "block";
-desbloqueados[id] = true;
+        if(intento === clave){
 
-}else{
-alert("Código incorrecto 😢");
-}
+            document.getElementById(id).style.display = "block";
 
-}
+            desbloqueados.push(id);
+            localStorage.setItem("desbloqueados", JSON.stringify(desbloqueados));
+
+        }else{
+            alert("Código incorrecto 😢");
+        }
+
+    }
 
 }
 
 </script>
 
-</body>
-</html>
