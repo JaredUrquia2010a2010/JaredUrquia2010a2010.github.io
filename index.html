@@ -5,59 +5,44 @@
 <title>Siete Días de Versos</title>
 </head>
 
-<body style="background-color: #fdf6e3; font-family: 'Georgia', serif; color: #444; display: flex; flex-direction: column; align-items: center; padding: 40px;">
+<body style="background-color: #fdf6e3; font-family: Georgia; display:flex; flex-direction:column; align-items:center; padding:40px;">
 
-<h1 style="color: #8c7b6e; font-style: italic; border-bottom: 2px solid #eaddca; padding-bottom: 10px;">Poemario Semanal</h1>
-<p style="margin-bottom: 30px; font-size: 0.9em; color: #999;">(Desbloquea cada sobre)</p>
-
-<!-- DIA 1 -->
-<details id="dia1">
-<summary>✉️ Día 1: El Comienzo</summary>
-<div>
-"Eres ese pensamiento bonito<br>
-que llega sin avisar..."
-</div>
-</details>
+<h1>Poemario Semanal</h1>
 
 <!-- DIA 2 -->
-<button onclick="desbloquear('dia2','clave2')">Desbloquear Día 2</button>
-
-<details id="dia2" style="pointer-events:none; opacity:0.5;">
+<details onclick="verificar(event,'dia2','AZU')">
 <summary>✉️ Día 2: El Sendero</summary>
-<div>
-"No busques el final del camino..."
+
+<div id="dia2" style="display:none; padding:15px;">
+"No busques el final del camino,<br>
+ni el oro al final del altar,<br>
+que el más bello destino<br>
+es simplemente saber caminar."
 </div>
+
 </details>
 
-<!-- DIA 3 -->
-<button onclick="desbloquear('dia3','clave3')">Desbloquear Día 3</button>
-
-<details id="dia3" style="pointer-events:none; opacity:0.5;">
-<summary>✉️ Día 3: Susurros</summary>
-<div>
-"Lo que el viento se lleva..."
-</div>
-</details>
-
-<p style="margin-top: 50px; font-size: 0.8em; color: #bbb;">Hecho con ❤️ para Azu</p>
-
-<!-- SCRIPT -->
 <script>
 
-function desbloquear(id, claveCorrecta){
+let desbloqueados = {};
 
-let clave = prompt("Ingresa el código secreto ❤️");
+function verificar(event,id,clave){
 
-if(clave === claveCorrecta){
+if(!desbloqueados[id]){
 
-let sobre = document.getElementById(id);
-sobre.style.pointerEvents = "auto";
-sobre.style.opacity = "1";
+event.preventDefault();
 
-alert("Sobre desbloqueado ✨");
+let intento = prompt("Ingresa el código secreto ❤️");
+
+if(intento === clave){
+
+document.getElementById(id).style.display = "block";
+desbloqueados[id] = true;
 
 }else{
 alert("Código incorrecto 😢");
+}
+
 }
 
 }
