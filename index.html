@@ -2,11 +2,79 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Siete Días de Versos</title>
+<title>Página protegida</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea, #95a24b);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    margin:0;
+}
+
+/* Caja del login */
+.login-box{
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    text-align:center;
+    width:300px;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+
+button{
+    margin-top:15px;
+    padding:10px;
+    width:100%;
+    border:none;
+    border-radius:8px;
+    background:#66ea78;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#5a6fd8;
+}
+
+.error{
+    color:red;
+    margin-top:10px;
+}
+
+/* Contenido oculto */
+#contenido{
+    display:none;
+    text-align:center;
+    color:white;
+}
+</style>
 </head>
 
-<body style="background-color: #fdf6e3; font-family: 'Georgia', serif; color: #444; padding: 40px;">
+<body>
 
+<!-- Pantalla contraseña -->
+<div class="login-box" id="login">
+    <h2>Ingrese contraseña</h2>
+    <input type="password" id="pass" placeholder="Contraseña">
+    <button onclick="verificar()">Entrar</button>
+    <p class="error" id="error"></p>
+</div>
+
+<!-- Contenido protegido -->
+<div id="contenido">
 <div style="display:flex; justify-content:center; align-items:flex-start; gap:40px;">
 
 <!-- ❤️ Imagen izquierda en forma de corazón -->
@@ -43,7 +111,7 @@ Poemario Semanal
 
 
 <!-- DIA 1 -->
-<details style="width: 100%; max-width: 400px; background: white; margin-bottom: 15px; border-radius: 5px; box-shadow: 2px 2px 10px rgba(0,0,0,0.05); cursor: pointer;">
+<details style="width: 100%; max-width: 400px; background: #000000; margin-bottom: 15px; border-radius: 5px; box-shadow: 2px 2px 10px rgba(0,0,0,0.05); cursor: pointer;">
 <summary style="padding: 15px; font-weight: bold; border: 1px solid #ddd;">
 ✉️ Día 1: El Comienzo
 </summary>
@@ -58,7 +126,7 @@ que me hace sonreír sin hablar."
 
 
 <!-- DIA 2 -->
-<details style="width: 100%; max-width: 400px; background: white; margin-bottom: 15px; border-radius: 5px; box-shadow: 2px 2px 10px rgba(0,0,0,0.05); cursor: pointer;">
+<details style="width: 100%; max-width: 400px; background: #0400ff; margin-bottom: 15px; border-radius: 5px; box-shadow: 2px 2px 10px rgba(0,0,0,0.05); cursor: pointer;">
 <summary style="padding: 15px; font-weight: bold; border: 1px solid #ddd;">
 ✉️ Día 2: El Sendero
 </summary>
@@ -73,7 +141,7 @@ es simplemente saber caminar."
 
 
 <!-- DIA 3 -->
-<details style="width: 100%; max-width: 400px; background: white; margin-bottom: 15px; border-radius: 5px; box-shadow: 2px 2px 10px rgba(0,0,0,0.05); cursor: pointer;">
+<details style="width: 100%; max-width: 400px; background:#0400ff; margin-bottom: 15px; border-radius: 5px; box-shadow: 2px 2px 10px rgba(0,0,0,0.05); cursor: pointer;">
 <summary style="padding: 15px; font-weight: bold; border: 1px solid #ddd;">
 ✉️ Día 3: Susurros
 </summary>
@@ -88,7 +156,7 @@ directo desde el cielo."
 
 
 <!-- DIA 4 -->
-<details style="width: 100%; max-width: 400px; background: white; margin-bottom: 15px; border-radius: 5px; box-shadow: 2px 2px 10px rgba(0,0,0,0.05); cursor: pointer;">
+<details style="width: 100%; max-width: 400px; background:#0400ff; margin-bottom: 15px; border-radius: 5px; box-shadow: 2px 2px 10px rgba(0,0,0,0.05); cursor: pointer;">
 <summary style="padding: 15px; font-weight: bold; border: 1px solid #ddd;">
 ✉️ Día 4
 </summary>
@@ -103,7 +171,7 @@ mi alma sigue caminando contigo.
 
 
 <!-- DIA 5 -->
-<details style="width: 100%; max-width: 400px; background: white; margin-bottom: 15px; border-radius: 5px; box-shadow: 2px 2px 10px rgba(0,0,0,0.05); cursor: pointer;">
+<details style="width: 100%; max-width: 400px; background: #0400ff; margin-bottom: 15px; border-radius: 5px; box-shadow: 2px 2px 10px rgba(0,0,0,0.05); cursor: pointer;">
 <summary style="padding: 15px; font-weight: bold; border: 1px solid #ddd;">
 ✉️ Día 5
 </summary>
@@ -118,7 +186,7 @@ me quiere derrumbar.
 
 
 <!-- DIA 6 -->
-<details style="width: 100%; max-width: 400px; background: white; margin-bottom: 15px; border-radius: 5px; box-shadow: 2px 2px 10px rgba(0,0,0,0.05); cursor: pointer;">
+<details style="width: 100%; max-width: 400px; background:#0400ff; margin-bottom: 15px; border-radius: 5px; box-shadow: 2px 2px 10px rgba(0,0,0,0.05); cursor: pointer;">
 <summary style="padding: 15px; font-weight: bold; border: 1px solid #ddd;">
 ✉️ Día 6
 </summary>
@@ -133,7 +201,7 @@ que el corazón recuerde.
 
 
 <!-- DIA 7 -->
-<details style="width: 100%; max-width: 400px; background: white; margin-bottom: 15px; border-radius: 5px; box-shadow: 2px 2px 10px rgba(0,0,0,0.05); cursor: pointer;">
+<details style="width: 100%; max-width: 400px; background:#0400ff; margin-bottom: 15px; border-radius: 5px; box-shadow: 2px 2px 10px rgba(0,0,0,0.05); cursor: pointer;">
 <summary style="padding: 15px; font-weight: bold; border: 1px solid #ddd;">
 ✉️ Día 7
 </summary>
@@ -178,15 +246,21 @@ overflow:hidden;
 <img src="lado2.png.png" style="width:100%; height:100%; object-fit:cover;">
 
 </div>
+</div>
+
+<script>
+function verificar(){
+    let contraseña = "1234"; // CAMBIA AQUÍ TU CONTRASEÑA
+    let ingreso = document.getElementById("pass").value;
+
+    if(ingreso === contraseña){
+        document.getElementById("login").style.display = "none";
+        document.getElementById("contenido").style.display = "block";
+    }else{
+        document.getElementById("error").textContent = "Contraseña incorrecta";
+    }
+}
+</script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
