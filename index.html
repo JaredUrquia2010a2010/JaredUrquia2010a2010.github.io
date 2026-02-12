@@ -1,302 +1,270 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Bienvenido</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Azu ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-<style>
-body{
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #0400ff, hsl(308, 100%, 54%));
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-    margin:0;
-}
+    <style>
+        :root {
+            --primary-pink: #ff85a2;
+            --secondary-pink: #fbb1bd;
+            --glass-bg: rgba(255, 255, 255, 0.25);
+            --glass-border: rgba(255, 255, 255, 0.4);
+        }
 
-/* Caja del login */
-.login-box{
-    background:white;
-    padding:30px;
-    border-radius:12px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.2);
-    text-align:center;
-    width:300px;
-}
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(45deg, #6a11cb, #ff85a2, #2575fc);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            overflow-x: hidden;
+        }
 
-input{
-    width:100%;
-    padding:10px;
-    margin-top:10px;
-    border-radius:8px;
-    border:1px solid #ccc;
-}
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
 
-button{
-    margin-top:15px;
-    padding:10px;
-    width:100%;
-    border:none;
-    border-radius:8px;
-    background:#66ea78;
-    color:white;
-    font-size:16px;
-    cursor:pointer;
-}
+        /* --- LOGIN ESTILIZADO --- */
+        .login-box {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            text-align: center;
+            width: 320px;
+            backdrop-filter: blur(10px);
+        }
 
-button:hover{
-    background:#5a6fd8;
-}
+        .login-box h2 { color: var(--primary-pink); margin-bottom: 20px; }
 
-.error{
-    color:red;
-    margin-top:10px;
-}
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            border-radius: 25px;
+            border: 1px solid #ddd;
+            text-align: center;
+            outline: none;
+            box-sizing: border-box;
+        }
 
-/* Contenido oculto */
-#contenido{
-    display:none;
-    text-align:center;
-    color:white;
-}
-</style>
+        button {
+            margin-top: 20px;
+            padding: 12px;
+            width: 100%;
+            border: none;
+            border-radius: 25px;
+            background: linear-gradient(to right, #ff85a2, #ffacbd);
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(255, 133, 162, 0.4); }
+
+        /* --- CONTENIDO PRINCIPAL --- */
+        #contenido {
+            display: none;
+            width: 90%;
+            max-width: 900px;
+            animation: fadeIn 1.5s ease;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        .main-layout {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        /* --- CORAZONES CON IMAGEN --- */
+        .heart-frame {
+            width: 180px;
+            height: 180px;
+            clip-path: path('M90,175 C90,175 10,120 10,65 C10,35 35,10 60,10 C75,10 85,20 90,30 C95,20 105,10 120,10 C145,10 170,35 170,65 C170,120 90,175 90,175 Z');
+            background: white;
+            padding: 5px; /* Borde del corazón */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .heart-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            clip-path: inherit;
+        }
+
+        /* --- CONTENEDOR CENTRAL GLASS --- */
+        .glass-container {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+            text-align: center;
+            flex: 1;
+            min-width: 320px;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            color: white;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .subtitle { color: white; opacity: 0.9; font-size: 0.9rem; margin-bottom: 30px; }
+
+        /* --- SOBRES (DETAILS) --- */
+        details {
+            background: rgba(255, 255, 255, 0.2);
+            margin-bottom: 12px;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: 0.3s;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        details:hover { background: rgba(255, 255, 255, 0.4); }
+
+        summary {
+            padding: 15px;
+            font-weight: 600;
+            color: white;
+            list-style: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        summary::before { content: '✉️ '; margin-right: 10px; }
+
+        .poem-content {
+            padding: 20px;
+            background: white;
+            color: #d63384;
+            font-style: italic;
+            line-height: 1.6;
+            border-radius: 0 0 15px 15px;
+        }
+
+        audio {
+            margin-top: 30px;
+            filter: sepia(20%) saturate(70%) grayscale(1) contrast(90%) invert(100%);
+            width: 80%;
+            height: 35px;
+        }
+
+        .footer-text { margin-top: 20px; color: white; font-size: 0.7rem; opacity: 0.6; }
+
+    </style>
 </head>
-
 <body>
 
-<!-- Pantalla contraseña -->
 <div class="login-box" id="login">
-    <h2>Ingrese contraseña</h2>
-    <input type="password" id="pass" placeholder="Contraseña">
-    <button onclick="verificar()">Entrar</button>
-    <p class="error" id="error"></p>
+    <h2>🔒 Solo para Azu</h2>
+    <p style="font-size: 0.8rem; color: #888;">Ingresa nuestra fecha especial</p>
+    <input type="text" id="pass" placeholder="DD/MM/AAAA">
+    <button onclick="verificar()">Entrar al Corazón</button>
+    <p class="error" id="error" style="color: #ff4d4d; font-size: 0.8rem; margin-top: 10px;"></p>
 </div>
 
-<!-- Contenido protegido -->
 <div id="contenido">
-<div style="display:flex; justify-content:center; align-items:flex-start; gap:40px;">
+    <div class="main-layout">
+        
+        <div class="heart-frame">
+            <img src="lado1.png" alt="Nosotros">
+        </div>
 
-<!-- ❤️ Imagen izquierda en forma de corazón -->
-<div style="
-width:200px;
-height:200px;
-margin-top:80px;
-clip-path: polygon(
-55% 20%, 
-65% 0%, 
-85% 0%, 
-100% 25%, 
-100% 50%, 
-50% 100%, 
-0% 50%, 
-0% 25%, 
-15% 0%, 
-39% 0%
-);
-overflow:hidden;
-">
-<img src="lado1.png" style="width:100%; height:100%; object-fit:cover;">
-</div>
+        <div class="glass-container">
+            <h1>Poemario Semanal</h1>
+            <p class="subtitle">(Un sobre para cada día de nuestra historia)</p>
 
-<!-- CONTENIDO CENTRAL -->
-<div style="display:flex; flex-direction:column; align-items:center;">
+            <details>
+                <summary>Día 1: El Comienzo</summary>
+                <div class="poem-content">"Eres ese pensamiento bonito que llega sin avisar, ese motivo secreto que me hace sonreír sin hablar."</div>
+            </details>
 
-<h1 style="color: #000000; font-style: italic; border-bottom: 2px solid #eaddca; padding-bottom: 10px; margin-top:60px;">
+            <details>
+                <summary>Día 2: El Sendero</summary>
+                <div class="poem-content">"No busques el final del camino, ni el oro al final del altar, que el más bello destino es simplemente saber caminar."</div>
+            </details>
 
-Poemario Semanal
-</h1>
+            <details>
+                <summary>Día 3: Susurros</summary>
+                <div class="poem-content">"Lo que el viento se lleva, el corazón lo guarda con celo, como lluvia que llueve directo desde el cielo."</div>
+            </details>
 
-<p style="margin-bottom: 30px; font-size: 0.9em; color: #000000;">
-(Abre un sobre cada día)
-</p>
+            <details>
+                <summary>Día 4: Compañía</summary>
+                <div class="poem-content">Te amo en cada sueño que despierta, en cada palabra que no digo, porque incluso cuando estás lejos, mi alma sigue caminando contigo.</div>
+            </details>
 
+            <details>
+                <summary>Día 5: Susurro</summary>
+                <div class="poem-content">Eres ese pensamiento que llega sin avisar, la calma cuando el mundo me quiere derrumbar.</div>
+            </details>
 
-<!-- DIA 1 -->
-<details style="width: 100%; max-width: 400px; background: hsl(308, 100%, 54%); margin-bottom: 15px; border-radius: 5px; box-shadow: 2px 2px 10px rgba(0,0,0,0.05); cursor: pointer;">
-<summary style="padding: 15px; font-weight: bold; border: 1px solid #ddd;">
-✉️ Día 1: El Comienzo
-</summary>
+            <details>
+                <summary>Día 6: Pequeño infinito</summary>
+                <div class="poem-content">No necesito promesas eternas, ni palabras que el viento lleve. Solo quiero momentos contigo que el corazón recuerde.</div>
+            </details>
 
-<div style="padding: 20px; font-style: italic; line-height: 1.8;">
-"Eres ese pensamiento bonito<br>
-que llega sin avisar,<br>
-ese motivo secreto<br>
-que me hace sonreír sin hablar."
-</div>
-</details>
+            <details>
+                <summary>Día 7: Coincidencia</summary>
+                <div class="poem-content">Porque en un segundo a tu lado cabe todo un universo, y en un simple abrazo tuyo encuentro mi lugar perfecto.</div>
+            </details>
 
+            <details style="background: rgba(255, 105, 180, 0.4);">
+                <summary>Hecho por mí 💞</summary>
+                <div class="poem-content">Azucena, tan linda y tan pequeña, guardas en tus ojos la luz de la luna, dos rubíes brillando en la noche que llenan mi alma de ternura.</div>
+            </details>
 
-<!-- DIA 2 -->
-<details style="width: 100%; max-width: 400px; background: hsl(308, 100%, 54%); margin-bottom: 15px; border-radius: 5px; box-shadow: 2px 2px 10px rgba(0,0,0,0.05); cursor: pointer;">
-<summary style="padding: 15px; font-weight: bold; border: 1px solid #ddd;">
-✉️ Día 2: El Sendero
-</summary>
+            <audio controls>
+                <source src="musica/Taylor Swift - Enchanted (2).mp3" type="audio/mpeg">
+            </audio>
 
-<div style="padding: 20px; font-style: italic; line-height: 1.8;">
-"No busques el final del camino,<br>
-ni el oro al final del altar,<br>
-que el más bello destino<br>
-es simplemente saber caminar."
-</div>
-</details>
+            <p class="footer-text">Hecho con ❤️ para Azu • 2026</p>
+        </div>
 
+        <div class="heart-frame">
+            <img src="lado2.png.png" alt="Azu">
+        </div>
 
-<!-- DIA 3 -->
-<details style="width: 100%; max-width: 400px; background:hsl(308, 100%, 54%); margin-bottom: 15px; border-radius: 5px; box-shadow: 2px 2px 10px rgba(0,0,0,0.05); cursor: pointer;">
-<summary style="padding: 15px; font-weight: bold; border: 1px solid #ddd;">
-✉️ Día 3: Susurros
-</summary>
-
-<div style="padding: 20px; font-style: italic; line-height: 1.8;">
-"Lo que el viento se lleva,<br>
-el corazón lo guarda con celo,<br>
-como lluvia que llueve<br>
-directo desde el cielo."
-</div>
-</details>
-
-
-<!-- DIA 4 -->
-<details style="width: 100%; max-width: 400px; background:hsl(308, 100%, 54%); margin-bottom: 15px; border-radius: 5px; box-shadow: 2px 2px 10px rgba(0,0,0,0.05); cursor: pointer;">
-<summary style="padding: 15px; font-weight: bold; border: 1px solid #ddd;">
-✉️ Día 4: aña
-</summary>
-
-<div style="padding: 20px; font-style: italic; line-height: 1.8;">
-Te amo en cada sueño que despierta,<br>
-en cada palabra que no digo,<br>
-porque incluso cuando estás lejos,<br>
-mi alma sigue caminando contigo.
-</div>
-</details>
-
-
-<!-- DIA 5 -->
-<details style="width: 100%; max-width: 400px; background: hsl(308, 100%, 54%); margin-bottom: 15px; border-radius: 5px; box-shadow: 2px 2px 10px rgba(0,0,0,0.05); cursor: pointer;">
-<summary style="padding: 15px; font-weight: bold; border: 1px solid #ddd;">
-✉️ Día 5: Susurro
-</summary>
-
-<div style="padding: 20px; font-style: italic; line-height: 1.8;">
-Eres ese pensamiento<br>
-que llega sin avisar,<br>
-la calma cuando el mundo<br>
-me quiere derrumbar.
-</div>
-</details>
-
-
-<!-- DIA 6 -->
-<details style="width: 100%; max-width: 400px; background:hsl(308, 100%, 54%); margin-bottom: 15px; border-radius: 5px; box-shadow: 2px 2px 10px rgba(0,0,0,0.05); cursor: pointer;">
-<summary style="padding: 15px; font-weight: bold; border: 1px solid #ddd;">
-✉️ Día 6: Pequeño infinito
-</summary>
-
-<div style="padding: 20px; font-style: italic; line-height: 1.8;">
-No necesito promesas eternas,<br>
-ni palabras que el viento lleve.<br>
-Solo quiero momentos contigo<br>
-que el corazón recuerde.
-</div>
-</details>
-
-
-<!-- DIA 7 -->
-<details style="width: 100%; max-width: 400px; background:hsl(308, 100%, 54%); margin-bottom: 15px; border-radius: 5px; box-shadow: 2px 2px 10px rgba(0,0,0,0.05); cursor: pointer;">
-<summary style="padding: 15px; font-weight: bold; border: 1px solid #ddd;">
-✉️ Día 7: Coincidencia
-</summary>
-
-<div style="padding: 20px; font-style: italic; line-height: 1.8;">
-Porque en un segundo a tu lado<br>
-cabe todo un universo,<br>
-y en un simple abrazo tuyo<br>
-encuentro mi lugar perfecto.
-</div>
-</details>
-    <!-- DIA  -->
-<details style="width: 100%; max-width: 400px; background: hsl(308, 100%, 54%); margin-bottom: 15px; border-radius: 5px; box-shadow: 2px 2px 10px rgba(0,0,0,0.05); cursor: pointer;">
-<summary style="padding: 15px; font-weight: bold; border: 1px solid #ddd;">
-✉️ hecho por mi💞
-</summary>
-
-<div style="padding: 20px; font-style: italic; line-height: 1.8;">
-Azucena, tan linda y tan pequeña,<br>
-guardas en tus ojos la luz de la luna,<br>
-dos rubíes brillando en la noche<br>
-que llenan mi alma de ternura.
-</div>
-</details>
-
-
-<p style="margin-top: 50px; font-size: 0.8em; color: rgba(0,0,0,0.2);">
-Hecho con ❤️ para Azu (version beta no es el 100%) 
-</p>
-
-<audio controls>
-<source src="musica/Taylor Swift - Enchanted (2).mp3" type="audio/mpeg">
-</audio>
-
-</div>
-
-<!-- ❤️ Imagen derecha en forma de corazón -->
-<div style="
-width:200px;
-height:200px;
-margin-top:80px;
-clip-path: polygon(
-
-50% 15%, 
-61% 0%, 
-85% 0%, 
-100% 25%, 
-100% 50%, 
-50% 100%, 
-0% 50%, 
-0% 25%, 
-15% 0%, 
-39% 0%
-);
-overflow:hidden;
-">
-<img src="lado2.png.png" style="width:100%; height:100%; object-fit:cover;">
-
-</div>
+    </div>
 </div>
 
 <script>
 function verificar(){
-    let contraseña = "05/01/2026"; // CAMBIA AQUÍ TU CONTRASEÑA
+    let contraseña = "tamal"; 
     let ingreso = document.getElementById("pass").value;
 
     if(ingreso === contraseña){
         document.getElementById("login").style.display = "none";
         document.getElementById("contenido").style.display = "block";
-    }else{
-        document.getElementById("error").textContent = "Contraseña incorrecta";
+    } else {
+        document.getElementById("error").textContent = "Fecha incorrecta, intenta de nuevo amor";
     }
 }
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
