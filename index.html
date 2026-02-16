@@ -33,7 +33,7 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* --- LOGIN ESTILIZADO --- */
+        /* --- LOGIN --- */
         .login-box {
             background: rgba(255, 255, 255, 0.9);
             padding: 40px;
@@ -42,6 +42,7 @@
             text-align: center;
             width: 320px;
             backdrop-filter: blur(10px);
+            z-index: 10;
         }
 
         .login-box h2 { color: var(--primary-pink); margin-bottom: 20px; }
@@ -73,12 +74,13 @@
 
         button:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(255, 133, 162, 0.4); }
 
-        /* --- CONTENIDO PRINCIPAL --- */
+        /* --- CONTENIDO --- */
         #contenido {
             display: none;
-            width: 90%;
-            max-width: 900px;
+            width: 95%;
+            max-width: 1000px;
             animation: fadeIn 1.5s ease;
+            padding: 20px;
         }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
@@ -87,17 +89,16 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 30px;
+            gap: 20px;
             flex-wrap: wrap;
         }
 
-        /* --- CORAZONES CON IMAGEN --- */
+        /* --- CORAZONES --- */
         .heart-frame {
-            width: 180px;
-            height: 180px;
-            clip-path: path('M90,175 C90,175 10,120 10,65 C10,35 35,10 60,10 C75,10 85,20 90,30 C95,20 105,10 120,10 C145,10 170,35 170,65 C170,120 90,175 90,175 Z');
+            width: 200px;
+            height: 200px;
             background: white;
-            padding: 5px; /* Borde del corazón */
+            clip-path: path('M100,185 C100,185 20,130 20,75 C20,45 45,20 70,20 C85,20 95,30 100,40 C105,30 115,20 130,20 C155,20 180,45 180,75 C180,130 100,185 100,185 Z');
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
 
@@ -105,75 +106,67 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            clip-path: inherit;
         }
 
-        /* --- CONTENEDOR CENTRAL GLASS --- */
+        /* --- CONTENEDOR CENTRAL --- */
         .glass-container {
             background: var(--glass-bg);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             border: 1px solid var(--glass-border);
-            padding: 40px;
+            padding: 30px;
             border-radius: 30px;
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
             text-align: center;
             flex: 1;
-            min-width: 320px;
+            min-width: 300px;
         }
 
         h1 {
             font-family: 'Dancing Script', cursive;
-            font-size: 3rem;
+            font-size: 2.8rem;
             color: white;
             margin: 0;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
 
-        .subtitle { color: white; opacity: 0.9; font-size: 0.9rem; margin-bottom: 30px; }
+        .subtitle { color: white; opacity: 0.9; font-size: 0.9rem; margin-bottom: 25px; }
 
-        /* --- SOBRES (DETAILS) --- */
+        /* --- SOBRES --- */
         details {
             background: rgba(255, 255, 255, 0.2);
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             border-radius: 15px;
             overflow: hidden;
             transition: 0.3s;
             border: 1px solid rgba(255,255,255,0.3);
         }
 
-        details:hover { background: rgba(255, 255, 255, 0.4); }
-
         summary {
-            padding: 15px;
+            padding: 12px;
             font-weight: 600;
             color: white;
             list-style: none;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
-        summary::before { content: '✉️ '; margin-right: 10px; }
+        summary::before { content: '✉️ '; }
 
         .poem-content {
-            padding: 20px;
+            padding: 15px;
             background: white;
             color: #d63384;
             font-style: italic;
-            line-height: 1.6;
-            border-radius: 0 0 15px 15px;
+            line-height: 1.5;
         }
 
         audio {
-            margin-top: 30px;
-            filter: sepia(20%) saturate(70%) grayscale(1) contrast(90%) invert(100%);
-            width: 80%;
-            height: 35px;
+            margin-top: 20px;
+            width: 100%;
+            max-width: 250px;
+            height: 30px;
         }
 
-        .footer-text { margin-top: 20px; color: white; font-size: 0.7rem; opacity: 0.6; }
+        .footer-text { margin-top: 15px; color: white; font-size: 0.7rem; opacity: 0.7; }
 
     </style>
 </head>
@@ -184,7 +177,7 @@
     <p style="font-size: 0.8rem; color: #888;">Ingresa nuestra fecha especial</p>
     <input type="text" id="pass" placeholder="DD/MM/AAAA">
     <button onclick="verificar()">Entrar al Corazón</button>
-    <p class="error" id="error" style="color: #ff4d4d; font-size: 0.8rem; margin-top: 10px;"></p>
+    <p id="error" style="color: #ff4d4d; font-size: 0.8rem; margin-top: 10px;"></p>
 </div>
 
 <div id="contenido">
@@ -199,64 +192,43 @@
             <p class="subtitle">(Un sobre para cada día de nuestra historia)</p>
 
             <details>
-                <summary>Día 1: 🌅Luz que Alegra el Día</summary>
-                <div class="poem-content">"Eres como el sol en la mañana
-                    ,iluminas todo sin intentarlo,
-tu sonrisa tiene magia guardada
-y tu forma de ser… imposible no admirarlo."</div>
+                <summary>Día 1: 🌅 Luz que Alegra el Día</summary>
+                <div class="poem-content">"Eres como el sol en la mañana, iluminas todo sin intentarlo, tu sonrisa tiene magia guardada y tu forma de ser… imposible no admirarlo."</div>
             </details>
 
             <details>
-                <summary>Día 2: ⭐Brillo Único</summary>
-                <div class="poem-content">"Hay personas lindas,
-y luego estás tú,
-que con solo existir
-haces que el mundo tenga más luz."</div>
+                <summary>Día 2: ⭐ Brillo Único</summary>
+                <div class="poem-content">"Hay personas lindas, y luego estás tú, que con solo existir haces que el mundo tenga más luz."</div>
             </details>
 
             <details>
-                <summary>Día 3:🌌Ojos de Estrella</summary>
-                <div class="poem-content">"Tus ojos parecen estrellas,
-de esas que no dejan de brillar,
-y tu corazón tan noble
-es difícil de igualar."</div>
+                <summary>Día 3: 🌌 Ojos de Estrella</summary>
+                <div class="poem-content">"Tus ojos parecen estrellas, de esas que no dejan de brillar, y tu corazón tan noble es difícil de igualar."</div>
             </details>
 
             <details>
-                <summary>Día 4: 🎶Canción en Tu Voz</summary>
-                <div class="poem-content">Tu voz es calma,
-tu risa es canción,
-y cada palabra tuya
-se queda guardada en el corazón.</div>
+                <summary>Día 4: 🎶 Canción en Tu Voz</summary>
+                <div class="poem-content">"Tu voz es calma, tu risa es canción, y cada palabra tuya se queda guardada en el corazón."</div>
             </details>
 
             <details>
-                <summary>Día 5: 🌷Don Especial</summary>
-                <div class="poem-content">No sé si lo notas,
-pero tienes un don especial,
-haces sentir importante a cualquiera
-solo con tu forma de tratar..</div>
+                <summary>Día 5: 🌷 Don Especial</summary>
+                <div class="poem-content">"No sé si lo notas, pero tienes un don especial, haces sentir importante a cualquiera solo con tu forma de tratar."</div>
             </details>
 
             <details>
-                <summary>Día 6: 🌙Sueño Bonito</summary>
-                <div class="poem-content">Eres como un sueño bonito
-de esos que no quieres olvidar,
-porque tu forma de ser tan dulce
-es difícil de encontrar.</div>
+                <summary>Día 6: 🌙 Sueño Bonito</summary>
+                <div class="poem-content">"Eres como un sueño bonito de esos que no quieres olvidar, porque tu forma de ser tan dulce es difícil de encontrar."</div>
             </details>
 
             <details>
-                <summary>Día 7: 💖Belleza Verdadera</summary>
-                <div class="poem-content">Tu belleza no es solo lo que se ve,
-es tu forma de pensar y sentir,
-porque personas como tú
-hacen que valga la pena sonreír.</div>
+                <summary>Día 7: 💖 Belleza Verdadera</summary>
+                <div class="poem-content">"Tu belleza no es solo lo que se ve, es tu forma de pensar y sentir, porque personas como tú hacen que valga la pena sonreír."</div>
             </details>
 
             <details style="background: rgba(255, 105, 180, 0.4);">
                 <summary>Hecho por mí 💞</summary>
-                <div class="poem-content">Azucena, tan linda y tan pequeña, guardas en tus ojos la luz de la luna, dos rubíes brillando en la noche que llenan mi alma de ternura.</div>
+                <div class="poem-content">"Azucena, tan linda y tan pequeña, guardas en tus ojos la luz de la luna, dos rubíes brillando en la noche que llenan mi alma de ternura."</div>
             </details>
 
             <audio controls>
@@ -267,19 +239,12 @@ hacen que valga la pena sonreír.</div>
         </div>
 
         <div class="heart-frame">
-            <img src="lado2.png.png" alt="Azu">
+            <img src="lado2.png" alt="Azu">
         </div>
 
     </div>
 </div>
 
 <script>
-function verificar(){
-    let contraseña = "tamal"; 
-    let ingreso = document.getElementById("pass").value;
-
-    if(ingreso === contraseña){
-        document.getElementById("login").style.display = "none";
-        document.getElementById("contenido").style.display = "block";
-    } else {
-        document.getElementById("error").textContent = "Fecha incorrecta, intenta de nuevo amor";
+function verificar() {
+    // CAM
